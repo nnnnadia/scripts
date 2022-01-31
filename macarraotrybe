@@ -1,0 +1,69 @@
+#!/bin/bash
+#macarraotrybe - cria enquanto explica os comandos todas as pastas onde irão os exercícios
+#autora - Nádia Dutra
+
+echo "Olá vamos criar toda a hierarquia de pastas onde você colocará os exercícios que fará durante o ano."
+echo
+echo "Primeiro vamos verificar se estamos na home do atual usuário."
+
+#test1 - verifica se a pessoa estudante conhece o pwd
+while test "$E_PWD" != "pwd"
+do
+	echo "Digite o comando que nos mostra onde estamos: "
+	printf "$"
+	read E_PWD
+done
+pwd
+echo
+
+#test2 - verifica se a pessoa estudante sabe chegar na home
+echo "O usuário atual é o $USER, então sua pasta home é a $HOME."
+if [ "$PWD" = "$HOME" ]; then
+	echo "E como o pwd nos mostrou é aqui mesmo."
+else
+	while test "$E_CD" != "cd"
+	do
+		echo "Digite o comando que muda o diretório: "
+		printf "$"
+		read E_CD
+	done
+	while [ "$E_TIO" != "~" ] && [ "$E_TIO" != "$HOME" ]
+	do
+		echo "Agora o argumento do comando: "
+		printf "\$cd "
+		read E_TIO
+		if [ "$E_TIO" = "~" ] || [ "$E_TIO" = "$HOME" ]; then
+			cd $HOME
+		fi
+		echo "pwd novamente para conferir"
+		sleep 2
+		echo "\$pwd "
+		pwd
+	done
+fi
+
+# #test2 - verifica se a pessoa estudante sabe chegar na home
+# echo "O usuário atual é o $USER, então sua pasta home é a $HOME."
+# PRIMEIRA_TENTATIVA="sim"
+# while :
+# do
+# 	if test "$PWD" != "$HOME"
+# 	then
+# 		# problema1 - aqui o usuário deveria entrar os comandos e eles seriam executados
+# 		# echo "Use o comando que muda o diretório atual para chegar até a home" 
+# 		# read INCOM
+# 		# CONT=$((CONT+1))
+# 		# "$INCOM" ====> o erro
+# 		# mas já que não deu certo: (apagar as próximas 5 linha caso problema1 for resolvido)
+# 	else
+# 		if test "$PRIMEIRA_TENTATIVA" = "sim"
+# 		then
+# 			echo "E como o pwd nos mostrou é aqui mesmo."
+# 			break
+# 		else
+# 			cd ~
+# 			echo "Chegamos"
+# 			break
+# 		fi
+# 	fi
+# done
