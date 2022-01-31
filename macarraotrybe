@@ -2,68 +2,55 @@
 #macarraotrybe - cria enquanto explica os comandos todas as pastas onde irão os exercícios
 #autora - Nádia Dutra
 
-echo "Olá vamos criar toda a hierarquia de pastas onde você colocará os exercícios que fará durante o ano."
+echo "Olá"
+sleep 2 
+echo "Vamos criar toda a hierarquia de pastas onde você colocará os exercícios que fará durante o ano."
+sleep 3
 echo
 echo "Primeiro vamos verificar se estamos na home do atual usuário."
+sleep 2
 
 #test1 - verifica se a pessoa estudante conhece o pwd
 while test "$E_PWD" != "pwd"
 do
 	echo "Digite o comando que nos mostra onde estamos: "
+	sleep 1
 	printf "$"
 	read E_PWD
 done
 pwd
+sleep 2
 echo
 
 #test2 - verifica se a pessoa estudante sabe chegar na home
-echo "O usuário atual é o $USER, então sua pasta home é a $HOME."
+echo "Como o usuário atual é o $USER, a sua pasta home é a $HOME."
+sleep 2
 if [ "$PWD" = "$HOME" ]; then
 	echo "E como o pwd nos mostrou é aqui mesmo."
 else
+	echo "Então precisamos ir para o diretório home."
+	sleep 2
 	while test "$E_CD" != "cd"
 	do
 		echo "Digite o comando que muda o diretório: "
+		sleep 1
 		printf "$"
 		read E_CD
 	done
 	while [ "$E_TIO" != "~" ] && [ "$E_TIO" != "$HOME" ]
 	do
 		echo "Agora o argumento do comando: "
+		sleep 1
 		printf "\$cd "
 		read E_TIO
 		if [ "$E_TIO" = "~" ] || [ "$E_TIO" = "$HOME" ]; then
 			cd $HOME
 		fi
-		echo "pwd novamente para conferir"
-		sleep 2
-		echo "\$pwd "
-		pwd
 	done
+	sleep 1
+	echo "pwd novamente para conferir"
+	sleep 2
+	echo "\$pwd "
+	sleep 1
+	pwd
 fi
-
-# #test2 - verifica se a pessoa estudante sabe chegar na home
-# echo "O usuário atual é o $USER, então sua pasta home é a $HOME."
-# PRIMEIRA_TENTATIVA="sim"
-# while :
-# do
-# 	if test "$PWD" != "$HOME"
-# 	then
-# 		# problema1 - aqui o usuário deveria entrar os comandos e eles seriam executados
-# 		# echo "Use o comando que muda o diretório atual para chegar até a home" 
-# 		# read INCOM
-# 		# CONT=$((CONT+1))
-# 		# "$INCOM" ====> o erro
-# 		# mas já que não deu certo: (apagar as próximas 5 linha caso problema1 for resolvido)
-# 	else
-# 		if test "$PRIMEIRA_TENTATIVA" = "sim"
-# 		then
-# 			echo "E como o pwd nos mostrou é aqui mesmo."
-# 			break
-# 		else
-# 			cd ~
-# 			echo "Chegamos"
-# 			break
-# 		fi
-# 	fi
-# done
