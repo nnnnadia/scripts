@@ -1,5 +1,5 @@
 #!/bin/bash
-#macarraotrybe - cria enquanto explica os comandos todas as pastas onde irão os exercícios
+#macarraotrybe - cria enquanto explica os comandos todas as pastas onde irão os exercícios de acordo com o currículo da turma 20.
 #autora - Nádia Dutra
 
 echo "Olá"
@@ -11,8 +11,7 @@ echo "Primeiro vamos verificar se estamos na home do atual usuário."
 sleep 2
 
 #test1 - verifica se a pessoa estudante conhece o pwd
-while test "$E_PWD" != "pwd"
-do
+while test "$E_PWD" != "pwd"; do
 	echo "Digite o comando que nos mostra onde estamos: "
 	sleep 1
 	printf "$"
@@ -27,18 +26,17 @@ echo "Como o usuário atual é o $USER, a sua pasta home é a $HOME."
 sleep 2
 if [ "$PWD" = "$HOME" ]; then
 	echo "E como o pwd nos mostrou é aqui mesmo."
+	sleep 2
 else
 	echo "Então precisamos ir para o diretório home."
 	sleep 2
-	while test "$E_CD" != "cd"
-	do
+	while test "$E_CD" != "cd"; do
 		echo "Digite o comando que muda o diretório: "
 		sleep 1
 		printf "$"
 		read E_CD
 	done
-	while [ "$E_TIO" != "~" ] && [ "$E_TIO" != "$HOME" ]
-	do
+	while [ "$E_TIO" != "~" ] && [ "$E_TIO" != "$HOME" ]; do
 		echo "Agora o argumento do comando: "
 		sleep 1
 		printf "\$cd "
@@ -46,11 +44,35 @@ else
 		if [ "$E_TIO" = "~" ] || [ "$E_TIO" = "$HOME" ]; then
 			cd $HOME
 		fi
+		sleep 1
 	done
-	sleep 1
 	echo "pwd novamente para conferir"
 	sleep 2
 	echo "\$pwd "
 	sleep 1
 	pwd
 fi
+sleep 1
+
+#test3 - verifica se a pessoa estudante sabe criar um novo diretório
+echo "Precisamos agora só fazer as pastas"
+sleep 2
+while test "$E_MKDIR" != "mkdir"; do
+	echo "Qual comando cria uma pasta?"
+	sleep 1
+	printf "$"
+	read E_MKDIR
+done
+
+sleep 1
+echo "Isso mesmo!"
+sleep 1
+echo "Vou criar todos os diretórios pra você, veja."
+sleep 2
+printf "$"
+sleep 1
+printf "mkdir "
+sleep 1
+printf "trybe_exercicios"
+sleep 1
+mkdir trybe_exercicios
