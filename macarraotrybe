@@ -1,5 +1,5 @@
 #!/bin/bash
-#macarraotrybe - cria enquanto explica os comandos todas as pastas onde irão os exercícios de acordo com o currículo da turma 20.
+#macarraotrybe - cria enquanto explica os comandos todas as pastas de módulos e blocos onde irão os exercícios de acordo com o currículo da Trybe na turma 20. Os nomes das pastas são descritivas.
 #autora - Nádia Dutra
 
 echo "Olá"; sleep 2 
