@@ -18,10 +18,10 @@ sleep 2
 echo
 
 #test2 - verifica se a pessoa estudante sabe chegar na home
+VIU_CD="nao"
 echo "O usuário atual é o $USER, logo sua pasta home é a $HOME."; sleep 2
 if [ "$PWD" = "$HOME" ]; then
 	echo "E como o pwd nos mostrou é aqui mesmo.";	sleep 2
-	echo
 else
 	echo "Então precisamos ir para o diretório home.";	sleep 2
 	while test "$E_CD" != "cd"; do
@@ -30,7 +30,7 @@ else
 		read E_CD
 	done
 	while [ "$E_TIO" != "~" ] && [ "$E_TIO" != "$HOME" ]; do
-		echo "Agora o argumento do comando: "; sleep 1
+		echo "Agora o argumento para irmos direto pra home: "; sleep 1
 		printf "\$cd "
 		read E_TIO
 		if [ "$E_TIO" = "~" ] || [ "$E_TIO" = "$HOME" ]; then
@@ -39,12 +39,16 @@ else
 		sleep 1
 	done
 	echo "pwd novamente para conferir"; sleep 2
-	echo "\$pwd ";	sleep 1
+	printf "$";	sleep 1
+	printf "pwd"; sleep 1
+	echo
 	pwd
+	VIU_CD="sim"
 fi
 sleep 1
 
 #test3 - verifica se a pessoa estudante sabe criar um novo diretório
+echo
 echo "Precisamos agora só fazer as pastas."; sleep 2
 while test "$E_MKDIR" != "mkdir"; do
 	echo "Qual comando cria uma pasta?";	sleep 1
@@ -55,7 +59,7 @@ done
 sleep 1
 echo
 echo "Isso mesmo!"; sleep 1
-echo "Vou criar o diretório trybe-exercicios, veja."; sleep 2
+echo "Vou criar o diretório trybe-exercicios."; sleep 2
 printf "$"; sleep 1
 printf "mkdir "; sleep 1
 printf "trybe-exercicios"; sleep 2
@@ -84,3 +88,28 @@ printf "d "; sleep 1
 printf "trybe-exercicios"; sleep 1
 echo
 ls -d trybe-exercicios
+sleep 2
+echo "O diretorio foi criado (Foi listado todos os diretórios chamados 'trybe-exercicios')"; sleep 2
+echo
+
+#test2 - verifica se a pessoa estudante sabe mudar o diretório atual
+echo "Precisaremos de uma pasta para cada módulo."; sleep 2
+echo "Essas pastas irão dentro de trybe-exercicios."; sleep 2
+if test "$VIU_CD" = "sim"; then
+	echo "Você já me disse como mudar de diretório."; sleep 2
+else
+	while test "$E_CD" != "cd"; do
+		echo "Digite o comando que muda o diretório: "; sleep 1
+		printf "$"
+		read E_CD
+	done
+fi
+echo "Então vamos para trybe-exercicios."; sleep 2
+printf "$"; sleep 1
+printf "cd "; sleep 1
+printf "trybe-exercicios"; sleep 2
+cd trybe-exercicios
+echo "Quero que observe que quando mudamos de pasta o prompt também muda."; sleep 3
+echo "$ < eu sou o prompt )"; sleep 1
+
+printf ""; sleep 1
