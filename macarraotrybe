@@ -49,7 +49,7 @@ sleep 1
 
 #test3 - verifica se a pessoa estudante sabe criar um novo diretório
 echo
-echo "Precisamos agora só fazer as pastas."; sleep 2
+echo "Precisamos agora fazer as pastas."; sleep 2
 while test "$E_MKDIR" != "mkdir"; do
 	echo "Qual comando cria uma pasta?";	sleep 1
 	printf "$"
@@ -68,7 +68,7 @@ mkdir trybe-exercicios
 echo
 
 #test4 - verifica se a pessoa estudante sabe listar o conteúdo da pasta
-echo "Preciso da sua ajuda de novo."; sleep 2
+echo "Preciso da sua ajuda de novo. Quero conferir se foi criado mesmo."; sleep 2
 while test "$E_LS" != "ls"; do
 	echo "Qual comando lista o conteudo da pasta?"; sleep 1
 	printf "$"
@@ -89,7 +89,7 @@ printf "trybe-exercicios"; sleep 1
 echo
 ls -d trybe-exercicios
 sleep 2
-echo "O diretorio foi criado (Foi listado todos os diretórios chamados 'trybe-exercicios')"; sleep 2
+echo "O diretorio foi criado (Foi listado todos os diretórios chamados 'trybe-exercicios')"; sleep 3
 echo
 
 #test2 - verifica se a pessoa estudante sabe mudar o diretório atual
@@ -104,12 +104,80 @@ else
 		read E_CD
 	done
 fi
+
+#fim dos tests - agora apenas cria e comenta as pastas
 echo "Então vamos para trybe-exercicios."; sleep 2
+echo
+echo "Quero que observe que quando mudamos de pasta o prompt também muda."; sleep 3
+echo "$ < eu sou o prompt )"; sleep 2
 printf "$"; sleep 1
 printf "cd "; sleep 1
 printf "trybe-exercicios"; sleep 2
 cd trybe-exercicios
-echo "Quero que observe que quando mudamos de pasta o prompt também muda."; sleep 3
-echo "$ < eu sou o prompt )"; sleep 1
+echo
+printf "trybe-exercicios$"; sleep 2
+printf "mkdir "; sleep 1
+printf "modulo1-fundamentos"; sleep 1
+echo
+mkdir modulo1-fundamentos
+printf "trybe-exercicios$"; sleep 1
+printf "ls"; sleep 1
+echo
+ls; sleep 3
+echo
 
-printf ""; sleep 1
+echo "Você pode usar 1 mkdir para criar várias pastas."; sleep 2
+printf "trybe-exercicios$"; sleep 1
+printf "mkdir "; sleep 1
+printf "modulo2-front-end "; sleep 1
+printf "modulo3-back-end "; sleep 1
+printf "modulo4-ciencia-computacao"; sleep 1
+echo
+mkdir modulo2-front-end modulo3-back-end modulo4-ciencia-computacao
+printf "trybe-exercicios$"; sleep 1
+printf "ls"; sleep 1
+echo
+ls; sleep 3
+echo
+
+echo "Não vou mais te perguntar nada, apenas observe."; sleep 2
+echo "Vou criar todas as pastas de Blocos do Módulo 1"; sleep 2
+printf "trybe-exercicios$"; sleep 1
+printf "cd "; sleep 1
+printf "modulo1-fundamentos"; sleep 1
+echo
+printf "trybe-exercicios/modulo1-fundamentos$"; sleep 1
+printf "mkdir "; sleep 1
+printf "bloco1-unix-bash "; sleep 1
+printf "bloco2-git-github-internet "; sleep 1
+printf "bloco3-introducao-html-css "; sleep 1
+printf "bloco4-introducao-javascript-logica-programacao "; sleep 1
+printf "bloco5-javascript-dom-eventos-web-storage "; sleep 1
+printf "bloco6-html-css-forms-flexbox-responsivo "; sleep 1
+printf "bloco7-introducao-javascript-es6-testes-unitarios "; sleep 1
+printf "bloco8-higher-order-functions-javascript-es6 "; sleep 1
+printf "bloco9-javascript-testes-assincronos "; sleep 1
+echo
+mkdir bloco1-unix-bash bloco2-git-github-internet bloco3-introducao-html-css bloco4-introducao-javascript-logica-programacao bloco5-javascript-dom-eventos-web-storage bloco6-html-css-forms-flexbox-responsivo bloco7-introducao-javascript-es6-testes-unitarios bloco8-higher-order-functions-javascript-es6 bloco9-javascript-testes-assincronos
+printf "trybe-exercicios/modulo1-fundamentos$"; sleep 1
+printf "ls"; sleep 1
+echo
+ls; sleep 3
+echo
+
+echo "Criarei todas as pastas de Blocos do Módulo 2"; sleep 2
+printf "trybe-exercicios/modulo1-fundamentos$"; sleep 1
+printf "cd "; sleep 1
+printf ".."; sleep 1
+echo
+printf "trybe-exercicios$"; sleep 1
+printf "cd "; sleep 1
+printf "modulo2-front-end"; sleep 1
+echo
+
+echo "Dessa vez vou mudar de uma vez para a pasta do Módulo 3"; sleep 2
+printf "trybe-exercicios/modulo2-front-end$"; sleep 1
+printf "cd "; sleep 1
+printf ".."; sleep 1
+printf "/"; sleep 1
+printf "modulo3-back-end"; sleep 1
