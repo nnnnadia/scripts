@@ -1,10 +1,14 @@
 #!/bin/bash
 
-CAMINHO_IMAGENS=~/scripts/Alura/shell-scripting-1/imagens-livros
-
-for imagem in $@
+cd ~/scripts/Alura/shell-scripting-1/imagens-livros
+if [ ! -d png ]
+then
+	mkdir png
+fi
+for imagem in *.jpg
 do
-	convert $CAMINHO_IMAGENS/$imagem.jpg $CAMINHO_IMAGENS/$imagem.png
+	image_wo_extension=$(ls $imagem | awk -F. '{ print $1 }')
+	convert $image_wo_extension.jpg png/$image_wo_extension.png
 done
 
 
