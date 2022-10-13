@@ -1,5 +1,7 @@
 #!/bin/bash
 
-convert ~/scripts/Alura/shell-scripting-1/imagens-livros/algoritmos.jpg ~/scripts/Alura/shell-scripting-1/imagens-livros/algoritmos.png
+CAMINHO_IMAGENS=~/scripts/Alura/shell-scripting-1/imagens-livros
+
+convert $CAMINHO_IMAGENS/$1.jpg $CAMINHO_IMAGENS/$1.png
 
 
