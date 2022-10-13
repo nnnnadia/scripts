@@ -12,7 +12,7 @@ do
 	convert $image_wo_extension.jpg png/$image_wo_extension.png
 done
 }
-convert_image
+convert_image 2>erros.txt
 if [ $? -eq 0 ]
 then
 	echo "Conversão realizada com sucesso"
